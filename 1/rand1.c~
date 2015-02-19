@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int additive_random(const int m,const int k, int* X){
+	int Xn=(X[k-1]+X[0])%m;
+	int i;
+	for(i=0;i<k-1;++i){
+		X[i]=X[i+1];
+	};
+	X[k-1]=Xn;
+	return Xn;
+}
+
+int main(){
+	const int k=4,m=9;
+	int X[4]={3,5,7,11};
+	for(;;){
+		printf("%d\n",additive_random(m,k,X));
+	};
+	return 0;
+}
